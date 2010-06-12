@@ -18,6 +18,8 @@ def reloadable(file)
   load File.dirname(File.expand_path(__FILE__)) + "/" + file
 end
 
+reloadable 'persistent_data'
+
 #
 # == Options
 #
@@ -179,7 +181,7 @@ GRAVITIES = {
 
   # Left
   :left           => [   0,   0,  50, 100 ],
-  :left66         => [   0,  50,  50,  34 ],
+  :left66         => [   0,  50,  10, 100 ],
   :left33         => [   0,  50,  25,  34 ],
 
   # Center
@@ -189,7 +191,7 @@ GRAVITIES = {
 
   # Right
   :right          => [ 100,   0,  50, 100 ],
-  :right66        => [ 100,  50,  50,  34 ],
+  :right66        => [ 100,  50,  10, 100 ],
   :right33        => [ 100,  50,  25,  34 ],
 
   # Bottom left
