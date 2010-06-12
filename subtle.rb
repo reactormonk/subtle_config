@@ -11,6 +11,13 @@
 # locations specified by +XDG_CONFIG_DIRS+ and +XDG_CONFIG_HOME+.
 #
 
+def reloadable(file)
+  unless file =~ /\.rb$/
+    file << '.rb'
+  end
+  load File.dirname(File.expand_path(__FILE__)) + "/" + file
+end
+
 #
 # == Options
 #
