@@ -18,19 +18,19 @@ module PersistentData
   end
 
   on :start do
-    @@data = load
+    self.data = load
   end
 
   on :reload do
     puts 'reload'
-    if load != @@data
-      load
+    if load != data
+      self.data = load
     else
-      save(@@data)
+      save(data)
     end
   end
 
   on :exit do
-    save(@@data)
+    save(data)
   end
 end
