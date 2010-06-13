@@ -1,5 +1,11 @@
 require 'pathname'
 require 'yaml'
+
+# Creates PersistentData::data where you can store your data. The first
+# level is a Hash so use a Key to your own Hash/Object so other plugins
+# can store their data here too.
+# If you specify reload: true in the YAML file and reload subtle, the data
+# will get replaced by the new one.
 module PersistentData
   include Kernel
 
@@ -18,7 +24,7 @@ module PersistentData
   end
 
   on :start do
-    self.data = load
+    self.data = load || {}
   end
 
   on :reload do
