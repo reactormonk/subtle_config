@@ -22,11 +22,12 @@ module PersistentData
   end
 
   on :reload do
-    if load != data
-      self.data = load
-    else
-      save(data)
+    loaded = load
+    if loaded && loaded['reload']
+      self.data = loaded
+      data.delete('reload')
     end
+    save(data)
   end
 
   on :exit do
