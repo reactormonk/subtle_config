@@ -319,12 +319,8 @@ GRABS = {
   "W-comma" => [ :bottom,       :bottom66,       :bottom33       ],
   "W-period"=> [ :bottom_right, :bottom_right66, :bottom_right33 ],
 
-  "C-XF86Forward" => proc do
-    Subtlext::View.current.next.jump
-  end,
-  "C-XF86Back" => proc do
-    Subtlext::View.current.prev.jump
-  end,
+  "C-XF86Forward" => :ViewNext,
+  "C-XF86Back"    => :ViewPrev,
 
   # Exec some programs
   "W-Return" => "urxvt",
