@@ -3,18 +3,18 @@ require 'yaml'
 module PersistentData
   include Kernel
 
-  FILE  = Pathname.new(ENV['XDG_CONFIG_HOME']) + 'subtle' + 'config.yaml'
-
   class << self
-    attr_accessor :data
+    attr_accessor :data, :filename
   end
 
+  self.filename = Pathname.new(ENV['XDG_CONFIG_HOME']) + 'subtle' + 'config.yaml'
+
   def self.save(data)
-    File.open(FILE, 'w') {|file| file.write(data.to_yaml)}
+    File.open(filename, 'w') {|file| file.write(data.to_yaml)}
   end
 
   def self.load
-    YAML.load(File.read(FILE)) if FILE.exists?
+    YAML.load(File.read(filename)) if File.exist?(filename)
   end
 
   on :start do
@@ -22,7 +22,6 @@ module PersistentData
   end
 
   on :reload do
-    puts 'reload'
     if load != data
       self.data = load
     else
