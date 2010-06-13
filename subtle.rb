@@ -294,7 +294,7 @@ GRABS = {
   "W-b"      => :WindowStick,
 
   # Raise window
-  "W-z"      => :WindowRaise,
+  "W-u"      => :WindowRaise,
 
   # Lower window
   "W-n"      => :WindowLower,
