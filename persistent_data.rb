@@ -14,6 +14,7 @@ module PersistentData
   end
 
   self.filename = Pathname.new(ENV['XDG_CONFIG_HOME']) + 'subtle' + 'config.yaml'
+  self.data ||= {}
 
   def self.save(data)
     File.open(filename, 'w') {|file| file.write(data.to_yaml)}
