@@ -182,6 +182,7 @@ GRAVITIES = {
   # Left
   :left           => [   0,   0,  50, 100 ],
   :left66         => [   0,  50,  10, 100 ],
+  :left50         => [   0,  50,  50,  34 ],
   :left33         => [   0,  50,  25,  34 ],
 
   # Center
@@ -192,6 +193,7 @@ GRAVITIES = {
   # Right
   :right          => [ 100,   0,  50, 100 ],
   :right66        => [ 100,  50,  10, 100 ],
+  :right50        => [ 100,  50,  50,  34 ],
   :right33        => [ 100,  50,  25,  34 ],
 
   # Bottom left
@@ -312,9 +314,9 @@ GRABS = {
   "W-8"     => [ :top_left,     :top_left66,     :top_left33     ],
   "W-9"     => [ :top,          :top66,          :top33          ],
   "W-0"     => [ :top_right,    :top_right66,    :top_right33    ],
-  "W-i"     => [ :left,         :left66,         :left33         ],
+  "W-i"     => [ :left,         :left66,         :left33         , :left50],
   "W-o"     => [ :center,       :center66,       :center33       ],
-  "W-p"     => [ :right,        :right66,        :right33        ],
+  "W-p"     => [ :right,        :right66,        :right33        , :right50],
   "W-m"     => [ :bottom_left,  :bottom_left66,  :bottom_left33  ],
   "W-comma" => [ :bottom,       :bottom66,       :bottom33       ],
   "W-period"=> [ :bottom_right, :bottom_right66, :bottom_right33 ],
