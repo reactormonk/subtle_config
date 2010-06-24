@@ -72,46 +72,45 @@ set :outline,    0
 # is only one exception to this: If no background color is given no color will be set. This
 # will ensure a custom background pixmap won't be overwritten.
 #
-COLORS = {
-  # Foreground color of panel and separator
-  :fg_panel      => "#5ad25a",
 
-  # Foreground color of view button
-  :fg_views      => "#5ad25a",
+# Foreground color of panel and separator
+color :fg_panel, "#5ad25a"
 
-  # Foreground color of sublets
-  :fg_sublets    => "#5ad25a",
+# Foreground color of view button
+color :fg_views, "#5ad25a"
 
-  # Foreground color of focus window titles and active views
-  :fg_focus      => "#ffffff",
+# Foreground color of sublets
+color :fg_sublets, "#5ad25a"
 
-  # Foreground color of urgent window titles and views
-  :fg_urgent     => "#ff0000",
+# Foreground color of focus window titles and active views
+color :fg_focus, "#ffffff"
 
-  # Background color of panel
-  :bg_panel      => "#000000",
+# Foreground color of urgent window titles and views
+color :fg_urgent, "#ff0000"
 
-  # Background color of view button
-  :bg_views      => "#000000",
+# Background color of panel
+color :bg_panel, "#000000"
 
-  # Background color of sublets
-  :bg_sublets    => "#000000",
+# Background color of view button
+color :bg_views, "#000000"
 
-  # Background color of focus window titles and active views
-  :bg_focus      => "#000000",
+# Background color of sublets
+color :bg_sublets, "#000000"
 
-  # Background color of urgent window titles and views
-  :bg_urgent     => "#ffffff",
+# Background color of focus window titles and active views
+color :bg_focus, "#000000"
 
-  # Border color of focus windows
-  :border_focus  => "#303030",
+# Background color of urgent window titles and views
+color :bg_urgent, "#ffffff"
 
-  # Border color of normal windows
-  :border_normal => "#000000",
+# Border color of focus windows
+color :border_focus, "#303030"
 
-  # Border color of panel items
-  :border_panel  => "#303030"
-}
+# Border color of normal windows
+color :border_normal, "#000000"
+
+# Border color of panel items
+color :border_panel, "#303030"
 
 #
 # == Gravities
@@ -167,12 +166,12 @@ gravity :gimp_dock,     [100, 0, 10, 100]
 #
 # This is just an example how to use dmenu with colors defined in the subtle config.
 #
-@dmenu = "dmenu_run -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s' -p 'Select:'" % [
+#@dmenu = "dmenu_run -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s' -p 'Select:'" % [
   # TODO don't hardcode
-  "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*",
-  COLORS[:bg_panel], COLORS[:fg_panel],
-  COLORS[:bg_focus], COLORS[:fg_focus]
-]
+  #"-*-*-medium-*-*-*-14-*-*-*-*-*-*-*",
+  #COLORS[:bg_panel], COLORS[:fg_panel],
+  #COLORS[:bg_focus], COLORS[:fg_focus]
+#]
 
 # == Grabs
 #
