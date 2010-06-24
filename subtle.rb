@@ -25,37 +25,15 @@ reloadable 'persistent_data'
 #
 # Following options change behaviour and sizes of the window manager:
 #
-OPTIONS = {
-  # Border size in pixel of the windows
-  :border  => 2,
-
-  # Window move/resize steps in pixel per keypress
-  :step    => 5,
-
-  # Window screen border snapping
-  :snap    => 10,
-
-  # Limit execution time of sublets (0 = no limit)
-  :limit   => 1,
-
-  # Default starting gravity for windows (0 = gravity of last client)
-  :gravity => :center,
-
-  # Make transient windows urgent
-  :urgent  => false,
-
-  # Enable respecting of size hints globally
-  :resize  => false,
-
-  # Screen size padding (left, right, top, bottom)
-  :padding => [ 0, 0, 0, 0 ],
-
-  # Font string (see xfontsel)
-  :font    => "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
-
-  # Xft string
-  #:font    => "xft:sans-8"
-}
+set :border,     2
+set :step,       5
+set :snap,       10
+set :limit,      1
+set :gravity,    :center
+set :urgent,     false
+set :resize,     false
+set :padding,    [0, 0, 0, 0]
+set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 
 #
 # == Panel
@@ -75,22 +53,11 @@ OPTIONS = {
 # [*:spacer*]    Variable spacer
 # [*:separator*] Insert separator
 #
-PANEL = {
-  # Content of the top panel
-  :top       => [ :views, :title, :spacer, :sublets, :spacer, :tray ],
-
-  # Content of the bottom panel
-  :bottom    => [ ],
-
-  # Add stipple to panels
-  :stipple   => false,
-
-  # Separator between sublets
-  :separator => "",
-
-  # Outline border size in pixel of panel items
-  :border    => 0
-}
+set :top,        [:views, :title, :spacer, :sublets, :spacer, :tray]
+set :bottom,     []
+set :stipple,    true
+set :separator,  ""
+set :outline,    0
 
 #
 # == Colors
@@ -163,66 +130,46 @@ COLORS = {
 #
 #   :example = [ 0, 0, 100, 100 ]
 #
-GRAVITIES = {
-  # Top left
-  :top_left       => [   0,   0,  50,  50 ],
-  :top_left66     => [   0,   0,  50,  66 ],
-  :top_left33     => [   0,   0,  50,  34 ],
-
-  # Top
-  :top            => [   0,   0, 100,  50 ],
-  :top66          => [   0,   0, 100,  66 ],
-  :top33          => [   0,   0, 100,  34 ],
-
-  # Top right
-  :top_right      => [ 100,   0,  50,  50 ],
-  :top_right66    => [ 100,   0,  50,  66 ],
-  :top_right33    => [ 100,   0,  50,  34 ],
-
-  # Left
-  :left           => [   0,   0,  50, 100 ],
-  :left66         => [   0,  50,  10, 100 ],
-  :left50         => [   0,  50,  50,  34 ],
-  :left33         => [   0,  50,  25,  34 ],
-
-  # Center
-  :center         => [   0,   0, 100, 100 ],
-  :center66       => [   0,  50, 100,  34 ],
-  :center33       => [  50,  50,  50,  34 ],
-
-  # Right
-  :right          => [ 100,   0,  50, 100 ],
-  :right66        => [ 100,  50,  10, 100 ],
-  :right50        => [ 100,  50,  50,  34 ],
-  :right33        => [ 100,  50,  25,  34 ],
-
-  # Bottom left
-  :bottom_left    => [   0, 100,  50,  50 ],
-  :bottom_left66  => [   0, 100,  50,  66 ],
-  :bottom_left33  => [   0, 100,  50,  34 ],
-
-  # Bottom
-  :bottom         => [   0, 100, 100,  50 ],
-  :bottom66       => [   0, 100, 100,  66 ],
-  :bottom33       => [   0, 100, 100,  34 ],
-
-  # Bottom right
-  :bottom_right   => [ 100, 100,  50,  50 ],
-  :bottom_right66 => [ 100, 100,  50,  66 ],
-  :bottom_right33 => [ 100, 100,  50,  34 ],
-
-  # Gimp
-  :gimp_image     => [  50,  50,  80, 100 ],
-  :gimp_toolbox   => [   0,   0,  10, 100 ],
-  :gimp_dock      => [ 100,   0,  10, 100 ]
-}
+gravity :top_left,      [0, 0, 50, 50]
+gravity :top_left66,    [0, 0, 50, 66]
+gravity :top_left33,    [0, 0, 50, 34]
+gravity :top,           [0, 0, 100, 50]
+gravity :top66,         [0, 0, 100, 66]
+gravity :top33,         [0, 0, 100, 34]
+gravity :top_right,     [100, 0, 50, 50]
+gravity :top_right66,   [100, 0, 50, 66]
+gravity :top_right33,   [100, 0, 50, 34]
+gravity :left,          [0, 0, 50, 100]
+gravity :left66,        [0, 50, 10, 100]
+gravity :left50,        [0, 50, 50, 34]
+gravity :left33,        [0, 50, 25, 34]
+gravity :center,        [0, 0, 100, 100]
+gravity :center66,      [0, 50, 100, 34]
+gravity :center33,      [50, 50, 50, 34]
+gravity :right,         [100, 0, 50, 100]
+gravity :right66,       [100, 50, 10, 100]
+gravity :right50,       [100, 50, 50, 34]
+gravity :right33,       [100, 50, 25, 34]
+gravity :bottom_left,   [0, 100, 50, 50]
+gravity :bottom_left66, [0, 100, 50, 66]
+gravity :bottom_left33, [0, 100, 50, 34]
+gravity :bottom,        [0, 100, 100, 50]
+gravity :bottom66,      [0, 100, 100, 66]
+gravity :bottom33,      [0, 100, 100, 34]
+gravity :bottom_right,  [100, 100, 50, 50]
+gravity :bottom_right66, [100, 100, 50, 66]
+gravity :bottom_right33, [100, 100, 50, 34]
+gravity :gimp_image,    [50, 50, 80, 100]
+gravity :gimp_toolbox,  [0, 0, 10, 100]
+gravity :gimp_dock,     [100, 0, 10, 100]
 
 # == Dmenu
 #
 # This is just an example how to use dmenu with colors defined in the subtle config.
 #
 @dmenu = "dmenu_run -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s' -p 'Select:'" % [
-  OPTIONS[:font],
+  # TODO don't hardcode
+  "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*",
   COLORS[:bg_panel], COLORS[:fg_panel],
   COLORS[:bg_focus], COLORS[:fg_focus]
 ]
@@ -267,73 +214,59 @@ GRAVITIES = {
 #
 #   "A-Return" => "xterm"
 #
-GRABS = {
-  # Force reload of sublets
-  "W-C-r"    => :SubletsReload,
-
-  # Force reload of config
-  "W-S-r"    => :SubtleReload,
-
-  # Force restart of subtle
-  "W-C-S-r"  => :SubtleRestart,
-
-  # Quit subtle
-  "W-C-q"    => :SubtleQuit,
-
-  # Move current window
-  "W-B1"     => :WindowMove,
-
-  # Resize current window
-  "W-B3"     => :WindowResize,
-
-  # Toggle floating mode of window
-  "W-space"  => :WindowFloat,
-
-  # Toggle fullscreen mode of window
-  "W-f"      => :WindowFull,
-
-  # Toggle sticky mode of window (will be visible on all views)
-  "W-b"      => :WindowStick,
-
-  # Raise window
-  "W-u"      => :WindowRaise,
-
-  # Lower window
-  "W-n"      => :WindowLower,
-
-  # Select next windows
-  "W-h"   => :WindowLeft,
-  "W-j"   => :WindowDown,
-  "W-k"   => :WindowUp,
-  "W-l"   => :WindowRight,
-
-  # Kill current window
-  "W-q"    => :WindowKill,
-
-  # Cycle between given gravities
-  "W-8"     => [ :top_left,     :top_left66,     :top_left33     ],
-  "W-9"     => [ :top,          :top66,          :top33          ],
-  "W-0"     => [ :top_right,    :top_right66,    :top_right33    ],
-  "W-i"     => [ :left,         :left66,         :left33         , :left50],
-  "W-o"     => [ :center,       :center66,       :center33       ],
-  "W-p"     => [ :right,        :right66,        :right33        , :right50],
-  "W-m"     => [ :bottom_left,  :bottom_left66,  :bottom_left33  ],
-  "W-comma" => [ :bottom,       :bottom66,       :bottom33       ],
-  "W-period"=> [ :bottom_right, :bottom_right66, :bottom_right33 ],
-
-  "C-XF86Forward" => :ViewNext,
-  "C-XF86Back"    => :ViewPrev,
-
-  # Exec some programs
-  "W-Return" => "urxvt",
-  "W-dollar" => @dmenu,
-}
+grab "W-C-r", :SubletsReload
+grab "W-S-r", :SubtleReload
+grab "W-C-S-r", :SubtleRestart
+grab "W-C-q", :SubtleQuit
+grab "W-B1", :WindowMove
+grab "W-B3", :WindowResize
+grab "W-space", :WindowFloat
+grab "W-f", :WindowFull
+grab "W-b", :WindowStick
+grab "W-u", :WindowRaise
+grab "W-n", :WindowLower
+grab "W-h", :WindowLeft
+grab "W-j", :WindowDown
+grab "W-k", :WindowUp
+grab "W-l", :WindowRight
+grab "W-q", :WindowKill
+grab "W-8", [:top_left, :top_left66, :top_left33]
+grab "W-9", [:top, :top66, :top33]
+grab "W-0", [:top_right, :top_right66, :top_right33]
+grab "W-i", [:left, :left66, :left33, :left50]
+grab "W-o", [:center, :center66, :center33]
+grab "W-p", [:right, :right66, :right33, :right50]
+grab "W-m", [:bottom_left, :bottom_left66, :bottom_left33]
+grab "W-comma", [:bottom, :bottom66, :bottom33]
+grab "W-period", [:bottom_right, :bottom_right66, :bottom_right33]
+grab "C-XF86Forward", :ViewNext
+grab "C-XF86Back", :ViewPrev
+grab "W-Return", "urxvt"
+grab "W-dollar", "dmenu_run -fn '-*-*-medium-*-*-*-14-*-*-*-*-*-*-*' -nb '#000000' -nf '#5ad25a' -sb '#000000' -sf '#ffffff' -p 'Select:'"
+grab "W-1", :ViewJump1
+grab "W-A-1", :ScreenJump1
+grab "A-S-1", :WindowScreen1
+grab "W-2", :ViewJump2
+grab "W-A-2", :ScreenJump2
+grab "A-S-2", :WindowScreen2
+grab "W-3", :ViewJump3
+grab "W-A-3", :ScreenJump3
+grab "A-S-3", :WindowScreen3
+grab "W-4", :ViewJump4
+grab "W-A-4", :ScreenJump4
+grab "A-S-4", :WindowScreen4
+grab "W-5", :ViewJump5
+grab "W-A-5", :ScreenJump5
+grab "A-S-5", :WindowScreen5
+grab "W-6", :ViewJump6
+grab "W-A-6", :ScreenJump6
+grab "A-S-6", :WindowScreen6
 
 (1..6).each do |i|
   # Switch to view1, view2, ...
-  GRABS["W-#{i}"] = "ViewJump#{i}".to_sym
-  GRABS["W-A-#{i}"] = "ScreenJump#{i}".to_sym
-  GRABS["A-S-#{i}"] = "WindowScreen#{i}".to_sym
+  grab "W-#{i}", "ViewJump#{i}".to_sym
+  grab "W-A-#{i}", "ScreenJump#{i}".to_sym
+  grab "A-S-#{i}", "WindowScreen#{i}".to_sym
 end
 
 #
@@ -392,30 +325,62 @@ end
 #              urgent depending on the value. Urgent clients will get keyboard and mouse focus
 #              automatically.
 #
-TAGS = {
-  # Simple tags
-  "term"    => "xterm|[u]?rxvt",
-  "browser" => "uzbl|opera|firefox|navigator",
-  "mail"    => "kmail",
-  "chat"    => "psi|gajim|sshIRC",
+tag "term", "xterm|[u]?rxvt"
+tag "browser", "uzbl|opera|firefox|navigator"
+tag "mail", "kmail"
+tag "chat", "psi|gajim|sshIRC"
+tag "rubymine" do
+  regex    "java-lang-Thread"
+end
 
-  "rubymine"=> { :regex => "java-lang-Thread" },
+tag "editor" do
+  regex    "[g]?vim"
+  resize   true
+end
 
-  # Placement
-  "editor"  => { :regex => "[g]?vim", :resize => true },
-  "fixed"   => { :geometry => [ 10, 10, 100, 100 ], :stick => true },
-  "resize"  => { :regex => "sakura|gvim", :resize => true },
-  "gravity" => { :gravity => :center },
+tag "fixed" do
+  geometry [10, 10, 100, 100]
+  stick    true
+end
 
-  # Modes
-  "stick"   => { :regex => "mplayer", :float => true, :stick => true },
-  "float"   => { :regex => "display", :float => true },
+tag "resize" do
+  regex    "sakura|gvim"
+  resize   true
+end
 
-  # Gimp
-  "gimp_image"   => { :regex => "gimp-image-window", :match => [ :role ], :gravity => :gimp_image },
-  "gimp_toolbox" => { :regex => "gimp-toolbox", :match => [ :role ], :gravity => :gimp_toolbox },
-  "gimp_dock"    => { :regex => "gimp-dock", :match => [ :role ], :gravity => :gimp_dock },
-}
+tag "gravity" do
+  gravity  :center
+end
+
+tag "stick" do
+  regex    "mplayer"
+  float    true
+  stick    true
+end
+
+tag "float" do
+  regex    "display"
+  float    true
+end
+
+tag "gimp_image" do
+  regex    "gimp-image-window"
+  match    [:role]
+  gravity  :gimp_image
+end
+
+tag "gimp_toolbox" do
+  regex    "gimp-toolbox"
+  match    [:role]
+  gravity  :gimp_toolbox
+end
+
+tag "gimp_dock" do
+  regex    "gimp-dock"
+  match    [:role]
+  gravity  :gimp_dock
+end
+
 
 #
 # == Views
@@ -432,10 +397,8 @@ TAGS = {
 # [*:dynamic*] This property enables dynamic mode of the view, that means it will only be visible
 #              when there is a client on it.
 #
-VIEWS = {
-  "terms" => "term",
-  "net"   => "browser|chat|mail",
-  "dev"   => "editor|rubymine"
-}
+view "terms", "term"
+view "net", "browser|chat|mail"
+view "dev", "editor|rubymine"
 
 # vim:ts=2:bs=2:sw=2:et:fdm=marker
