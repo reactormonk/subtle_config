@@ -325,7 +325,7 @@ end
 #              automatically.
 #
 tag "term", "xterm|[u]?rxvt"
-tag "browser", "uzbl|opera|firefox|navigator"
+tag "browser", "uzbl|opera|firefox|navigator|midori"
 tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 tag "rubymine" do
@@ -333,7 +333,7 @@ tag "rubymine" do
 end
 
 tag "editor" do
-  regex    "[g]?vim"
+  regex    "[g]?vim|VIM"
   resize   true
 end
 
