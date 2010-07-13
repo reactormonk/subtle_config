@@ -28,7 +28,6 @@ reloadable 'persistent_data'
 set :border,     2
 set :step,       5
 set :snap,       10
-set :limit,      1
 set :gravity,    :center
 set :urgent,     false
 set :resize,     false
@@ -333,7 +332,7 @@ tag "rubymine" do
 end
 
 tag "editor" do
-  regex    "[g]?vim|VIM"
+  regex    "[g]?vim|VIM|level"
   resize   true
 end
 
