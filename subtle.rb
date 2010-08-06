@@ -241,24 +241,6 @@ grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
 grab "W-dollar", "dmenu_run -fn '-*-*-medium-*-*-*-14-*-*-*-*-*-*-*' -nb '#000000' -nf '#5ad25a' -sb '#000000' -sf '#ffffff' -p 'Select:'"
-grab "W-1", :ViewJump1
-grab "W-A-1", :ScreenJump1
-grab "A-S-1", :WindowScreen1
-grab "W-2", :ViewJump2
-grab "W-A-2", :ScreenJump2
-grab "A-S-2", :WindowScreen2
-grab "W-3", :ViewJump3
-grab "W-A-3", :ScreenJump3
-grab "A-S-3", :WindowScreen3
-grab "W-4", :ViewJump4
-grab "W-A-4", :ScreenJump4
-grab "A-S-4", :WindowScreen4
-grab "W-5", :ViewJump5
-grab "W-A-5", :ScreenJump5
-grab "A-S-5", :WindowScreen5
-grab "W-6", :ViewJump6
-grab "W-A-6", :ScreenJump6
-grab "A-S-6", :WindowScreen6
 
 (1..6).each do |i|
   # Switch to view1, view2, ...
