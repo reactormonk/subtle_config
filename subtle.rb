@@ -332,8 +332,16 @@ tag "rubymine" do
 end
 
 tag "editor" do
-  regex    "[g]?vim|VIM|level"
+  regex    "[g]?vim|VIM"
   resize   true
+end
+
+tag "ver" do
+  regex "Toplevel"
+  resize false
+end
+
+tag "dev-term" do
 end
 
 tag "fixed" do
@@ -397,7 +405,7 @@ end
 #
 view "terms", "term"
 view "net", "browser|chat|mail"
-view "dev", "editor|rubymine"
+view "dev", "editor|rubymine|dev-term|ver"
 view "other", "default"
 
 # vim:ts=2:bs=2:sw=2:et:fdm=marker
