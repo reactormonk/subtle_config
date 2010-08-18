@@ -306,7 +306,7 @@ end
 #              automatically.
 #
 tag "term", "xterm|[u]?rxvt"
-tag "browser", "uzbl|opera|firefox|navigator|midori"
+tag "browser", "uzbl|opera|firefox|navigator|midori|chromium"
 tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 tag "rubymine" do
