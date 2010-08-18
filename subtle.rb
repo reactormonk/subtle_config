@@ -309,9 +309,6 @@ tag "term", "xterm|[u]?rxvt"
 tag "browser", "uzbl|opera|firefox|navigator|midori|chromium"
 tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
-tag "rubymine" do
-  regex    "java-lang-Thread"
-end
 
 tag "editor" do
   regex    "[g]?vim|VIM"
@@ -387,7 +384,7 @@ end
 #
 view "terms", "term"
 view "net", "browser|chat|mail"
-view "dev", "editor|rubymine|dev-term|ver"
+view "dev", "editor|dev-term|ver"
 view "other", "default"
 
 #
