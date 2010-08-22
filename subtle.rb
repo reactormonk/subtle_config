@@ -388,11 +388,4 @@ view "net", "browser|chat|mail"
 view "dev", "editor|dev-term|ver"
 view "other", "default"
 
-#
-# == Hooks
-#
-on :client_focus do |client|
-  client.raise if client.has_tag?("ver")
-end
-
 # vim:ts=2:bs=2:sw=2:et:fdm=marker
