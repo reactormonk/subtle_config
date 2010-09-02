@@ -241,7 +241,7 @@ grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
 grab "W-dollar", "dmenu_run -fn '-*-*-medium-*-*-*-14-*-*-*-*-*-*-*' -nb '#000000' -nf '#5ad25a' -sb '#000000' -sf '#ffffff' -p 'Select:'"
-grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo $tmp | xclip -selection clipboard"
+grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
 
 (1..6).each do |i|
   # Switch to view1, view2, ...
