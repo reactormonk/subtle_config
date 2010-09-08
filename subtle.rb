@@ -312,12 +312,12 @@ tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 
 tag "editor" do
-  regex    "[g]?vim|VIM"
+  match    "[g]?vim|VIM"
   resize   true
 end
 
 tag "ver" do
-  regex "Toplevel"
+  match "Toplevel" # TODO improve that one.
   resize false
 end
 
@@ -330,7 +330,7 @@ tag "fixed" do
 end
 
 tag "resize" do
-  regex    "sakura|gvim"
+  match    "sakura|gvim"
   resize   true
 end
 
@@ -339,31 +339,28 @@ tag "gravity" do
 end
 
 tag "stick" do
-  regex    "mplayer"
+  match    "mplayer"
   float    true
   stick    true
 end
 
 tag "float" do
-  regex    "display"
+  match    "display"
   float    true
 end
 
 tag "gimp_image" do
-  regex    "gimp-image-window"
-  match    [:role]
+  match    :role => "gimp-image-window"
   gravity  :gimp_image
 end
 
 tag "gimp_toolbox" do
-  regex    "gimp-toolbox"
-  match    [:role]
+  match    :role => "gimp-toolbox"
   gravity  :gimp_toolbox
 end
 
 tag "gimp_dock" do
-  regex    "gimp-dock"
-  match    [:role]
+  match    :role => "gimp-dock"
   gravity  :gimp_dock
 end
 
