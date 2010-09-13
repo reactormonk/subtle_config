@@ -11,13 +11,7 @@
 # locations specified by +XDG_CONFIG_DIRS+ and +XDG_CONFIG_HOME+.
 #
 
-def reloadable(file)
-  unless file =~ /\.rb$/
-    file << '.rb'
-  end
-  load File.dirname(File.expand_path(__FILE__)) + "/" + file
-end
-
+require_relative "subtle-launcher/launcher"
 
 #
 # == Options
@@ -240,7 +234,9 @@ grab "W-period", [:bottom_right, :bottom_right50, :bottom_right33]
 grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
-grab "W-dollar", "dmenu_run -fn '-*-*-medium-*-*-*-14-*-*-*-*-*-*-*' -nb '#000000' -nf '#5ad25a' -sb '#000000' -sf '#ffffff' -p 'Select:'"
+grab "W-dollar" do
+  Launcher::Launcher.instance.run
+end
 grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
 
 (1..6).each do |i|

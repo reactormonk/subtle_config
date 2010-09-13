@@ -1,0 +1,3 @@
+[submodule "subtle-launcher"]
+	path = subtle-launcher
+	url = ./subtle-launcher
