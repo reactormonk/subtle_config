@@ -18,7 +18,6 @@ def reloadable(file)
   load File.dirname(File.expand_path(__FILE__)) + "/" + file
 end
 
-reloadable 'persistent_data'
 
 #
 # == Options
@@ -308,7 +307,7 @@ end
 #              automatically.
 #
 tag "term", "xterm|[u]?rxvt"
-tag "browser", "uzbl|opera|firefox|navigator|midori|chromium"
+tag "browser", "uzbl|opera|firefox|navigator|midori|chromium|dwb"
 tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 
@@ -386,4 +385,5 @@ view "net", "browser|chat|mail"
 view "dev", "editor|dev-term|ver"
 view "other", "default"
 
-# vim:ts=2:bs=2:sw=2:et:fdm=marker
+# vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
+
