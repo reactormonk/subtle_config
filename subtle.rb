@@ -345,6 +345,11 @@ tag "float" do
   float    true
 end
 
+tag "pinentry" do
+  match    "pinentry"
+  stick    true
+end
+
 tag "gimp_image" do
   match    :role => "gimp-image-window"
   gravity  :gimp_image
