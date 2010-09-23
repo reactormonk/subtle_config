@@ -308,7 +308,7 @@ tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 
 tag "editor" do
-  match    "[g]?vim|VIM"
+  match    "[g]?vim|VIM|Meld"
   resize   true
 end
 
