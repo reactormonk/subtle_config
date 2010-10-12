@@ -45,7 +45,7 @@ set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 # [*:spacer*]    Variable spacer
 # [*:separator*] Insert separator
 #
-screen 1 do
+screen 0 do
   set :top,        [:views, :title, :spacer, :sublets, :spacer, :tray]
   set :bottom,     []
   set :stipple,    true
