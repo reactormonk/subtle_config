@@ -45,9 +45,11 @@ set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 # [*:spacer*]    Variable spacer
 # [*:separator*] Insert separator
 #
-set :top,        [:views, :title, :spacer, :sublets, :spacer, :tray]
-set :bottom,     []
-set :stipple,    true
+screen 1 do
+  set :top,        [:views, :title, :spacer, :sublets, :spacer, :tray]
+  set :bottom,     []
+  set :stipple,    true
+end
 set :separator,  ""
 set :outline,    0
 
@@ -243,7 +245,6 @@ grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o 
   # Switch to view1, view2, ...
   grab "W-#{i}", "ViewJump#{i}".to_sym
   grab "W-A-#{i}", "ScreenJump#{i}".to_sym
-  grab "A-S-#{i}", "WindowScreen#{i}".to_sym
 end
 
 #
@@ -318,6 +319,7 @@ tag "ver" do
 end
 
 tag "dev-term" do
+  match "dev-term"
 end
 
 tag "fixed" do
