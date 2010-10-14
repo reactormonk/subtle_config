@@ -244,7 +244,7 @@ grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o 
 
 (1..6).each do |i|
   # Switch to view1, view2, ...
-  grab "W-#{i}", "ViewJump#{i}".to_sym
+  grab "W-#{i}", "ViewSwitch#{i}".to_sym
   grab "W-A-#{i}", "ScreenJump#{i}".to_sym
 end
 
