@@ -45,10 +45,11 @@ set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 # [*:spacer*]    Variable spacer
 # [*:separator*] Insert separator
 #
-screen 0 do
-  set :top,        [:views, :title, :spacer, :sublets, :spacer, :tray]
-  set :bottom,     []
-  set :stipple,    true
+screen 1 do
+  top [:views, :title, :spacer, :sublets, :spacer, :tray]
+end
+screen 2 do
+  top [:views, :title, :spacer]
 end
 set :separator,  ""
 set :outline,    0
