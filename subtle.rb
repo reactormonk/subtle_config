@@ -112,46 +112,31 @@ set :outline,    0
 # http://subforge.org/wiki/subtle/Themes
 #
 
-# Foreground color of panel and separator
-color :fg_panel, "#5ad25a"
+color :panel_fg, "#5ad25a"
+color :panel_bg, "#000000"
 
-# Foreground color of view button
-color :fg_views, "#5ad25a"
+color :views_fg, "#5ad25a"
+color :views_bg, "#000000"
+color :views_border, "#ffffff"
 
-# Foreground color of sublets
-color :fg_sublets, "#5ad25a"
+color :occupied_fg, "#5ad25a"
+color :occupied_bg, "#505050"
+color :occupied_border, "#ffffff"
 
-# Foreground color of focus window titles and active views
-color :fg_focus, "#ffffff"
+color :sublets_fg, "#5ad25a"
+color :sublets_bg, "#000000"
+color :sublets_border, "#303030"
 
-# Foreground color of urgent window titles and views
-color :fg_urgent, "#ff0000"
+color :focus_fg, "#ffffff"
+color :focus_bg, "#000000"
+color :focus_border, "#000000"
 
-# Background color of panel
-color :bg_panel, "#000000"
+color :urgent_fg, "#ff0000"
+color :urgent_bg, "#ffffff"
 
-# Background color of view button
-color :bg_views, "#000000"
+color :client_inactive, "#000000"
+color :client_active, "#303030"
 
-# Background color of sublets
-color :bg_sublets, "#000000"
-
-# Background color of focus window titles and active views
-color :bg_focus, "#000000"
-
-# Background color of urgent window titles and views
-color :bg_urgent, "#ffffff"
-
-# Border color of focus windows
-color :border_focus, "#303030"
-
-# Border color of normal windows
-color :border_normal, "#000000"
-
-# Border color of panel items
-color :border_panel, "#303030"
-
-# Color of the separator
 color :separator,     "#757575"
 
 #
