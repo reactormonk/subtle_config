@@ -419,7 +419,7 @@ tag "editor" do
 end
 
 tag "ver" do
-  match "Toplevel" # TODO improve that one.
+  match "ver"
   resize false
 end
 
@@ -444,7 +444,6 @@ end
 tag "stick" do
   match    "mplayer"
   float    true
-  stick    true
 end
 
 tag "float" do
