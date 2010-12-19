@@ -112,8 +112,8 @@ set :outline,    0
 # http://subforge.org/wiki/subtle/Themes
 #
 
-color :panel_fg, "#5ad25a"
-color :panel_bg, "#000000"
+color :stipple, "#5ad25a"
+color :panel, "#000000"
 
 color :views_fg, "#5ad25a"
 color :views_bg, "#000000"
