@@ -172,7 +172,7 @@ gravity :left,          [0, 0, 50, 100]
 gravity :left66,        [0, 50, 10, 100]
 gravity :left50,        [0, 50, 50, thirtythree]
 gravity :left33,        [0, 50, 25, thirtythree]
-gravity :center,        [0, 0, 100, 100]
+gravity :center,        [50, 50, 100, 100]
 gravity :center66,      [0, 50, 100, thirtythree]
 #gravity :center33,      [50, 50, 50, thirtythree]
 gravity :right,         [100, 0, 50, 100]
@@ -423,10 +423,6 @@ tag "ver" do
   resize false
 end
 
-tag "dev-term" do
-  match "dev-term"
-end
-
 tag "fixed" do
   geometry [10, 10, 100, 100]
   stick    true
@@ -486,7 +482,6 @@ end
 
 view "terms", "term"
 view "net", "browser|chat|mail"
-view "dev", "editor|dev-term|ver"
 view "other", "default"
 
 #
