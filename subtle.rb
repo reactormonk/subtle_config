@@ -467,6 +467,10 @@ tag "gimp_dock" do
   gravity  :gimp_dock
 end
 
+tag "wine" do
+  match :class => "wine"
+end
+
 #
 # == Views
 #
@@ -483,6 +487,10 @@ end
 view "terms", "term"
 view "net", "browser|chat|mail"
 view "other", "default"
+view "wine" do
+  match "wine"
+  dynamic true
+end
 
 #
 # == Sublets
