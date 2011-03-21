@@ -112,31 +112,50 @@ set :outline,    0
 # http://subforge.org/wiki/subtle/Themes
 #
 
-color :stipple, "#5ad25a"
-color :panel, "#000000"
+# Colors of focus window title
+color :title_fg,        "#ffffff"
+color :title_bg,        "#202020"
+color :title_border,    "#303030"
 
-color :views_fg, "#5ad25a"
-color :views_bg, "#000000"
-color :views_border, "#ffffff"
-
-color :occupied_fg, "#5ad25a"
-color :occupied_bg, "#505050"
-color :occupied_border, "#ffffff"
-
-color :sublets_fg, "#5ad25a"
-color :sublets_bg, "#000000"
-color :sublets_border, "#303030"
-
+# Colors of the active views
 color :focus_fg, "#ffffff"
 color :focus_bg, "#000000"
 color :focus_border, "#000000"
 
+# Colors of urgent window titles and views
 color :urgent_fg, "#ff0000"
 color :urgent_bg, "#ffffff"
+color :urgent_border,   "#303030"
 
+# Colors of occupied views (views with clients)
+color :occupied_fg, "#5ad25a"
+color :occupied_bg, "#505050"
+color :occupied_border, "#ffffff"
+
+# Color of view buttons
+color :views_fg, "#5ad25a"
+color :views_bg, "#000000"
+color :views_border, "#ffffff"
+
+# Colors of sublets
+color :sublets_fg, "#5ad25a"
+color :sublets_bg, "#000000"
+color :sublets_border, "#303030"
+
+# Border colors of active/inactive windows
 color :client_inactive, "#000000"
-color :client_active, "#303030"
+color :client_active, "#5ad25a"
 
+# Background colors of panels
+color :panel,           "#000000"
+
+# Background color of root background
+color :background,      "#3d3d3d"
+
+# Color of the stipple (if enabled)
+color :stipple, "#5ad25a"
+
+# Color of the separator
 color :separator,     "#757575"
 
 #
