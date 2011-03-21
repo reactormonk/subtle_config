@@ -150,7 +150,6 @@ color :client_active, "#5ad25a"
 color :panel,           "#000000"
 
 # Background color of root background
-color :background,      "#3d3d3d"
 
 # Color of the stipple (if enabled)
 color :stipple, "#5ad25a"
