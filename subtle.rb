@@ -299,6 +299,10 @@ end
 # exchanges primary clipboard and selection buffer
 grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
 
+grab "XF86AudioMute", :VolumeToggle
+grab "XF86AudioRaiseVolume", :VolumeRaise
+grab "XF86AudioLowerVolume", :VolumeLower
+
 (1..6).each do |i|
   # Switch to view1, view2, ...
   grab "W-#{i}", "ViewSwitch#{i}".to_sym
@@ -555,7 +559,6 @@ end
 #
 # http://subforge.org/wiki/subtle/Hooks
 #
-
 
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
 
