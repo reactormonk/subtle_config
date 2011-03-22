@@ -284,7 +284,6 @@ gravity :gimp_dock,     [100, 0, 10, 100]
 # http://subforge.org/wiki/subtle/Grabs
 #
 
-grab "W-S-r", :SubtleReload
 grab "W-C-S-r", :SubtleRestart
 grab "W-C-q", :SubtleQuit
 grab "W-B1", :WindowMove
@@ -576,7 +575,28 @@ end
 # === Link
 #
 # http://subforge.org/wiki/subtle/Hooks
-#
 
+
+# Other snippets
+tag "xmessage" do
+  match  "xmessage"
+  float  true
+  stick  true
+  urgent true
+end
+
+# The actual grab
+grab "W-S-r", <<SCRIPT
+subtle -k &>/dev/null
+reload=$?
+
+if [ $reload -eq 1 ] ; then
+ xmessage 'Syntax error, reload anyway?' -center -buttons NO:1,YES:0
+ reload=$?
+fi
+
+[ $reload -eq 0 ] && subtler -r
+SCRIPT
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
+
 
