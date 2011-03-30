@@ -599,6 +599,10 @@ fi
 
 [ $reload -eq 0 ] && subtler -r
 SCRIPT
+
+# JAVA hack
+set :wmname, "LG3D"
+
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
 
 
