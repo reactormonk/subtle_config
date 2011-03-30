@@ -314,7 +314,9 @@ grab "W-dollar" do
   Launcher::Launcher.instance.run
 end
 # exchanges primary clipboard and selection buffer
-grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
+grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
+# pastes to sprunge
+grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | xclip -selection -i"
 
 grab "XF86AudioMute", :VolumeToggle
 grab "XF86AudioRaiseVolume", :VolumeRaise
