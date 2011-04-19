@@ -20,7 +20,6 @@ require "subtle-launcher/launcher"
 # Following options change behaviour and sizes of the window manager:
 #
 # Border size in pixel of the windows
-set :border, 2
 
 # Window move/resize steps in pixel per keypress
 set :step, 5
@@ -38,20 +37,17 @@ set :urgent, false
 set :resize, false
 
 # Screen size padding (left, right, top, bottom)
-set :padding, [ 0, 0, 0, 0 ]
 
 # Font string either take from e.g. xfontsel or use xft
 set :font, "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 #set :font, "xft:sans-8"
 
 # Space around windows
-set :gap, 0
 
 # Separator between sublets
 set :separator, "|"
 
 # Outline border size in pixel of panel items
-set :outline, 0
 
 # Outline border size in pixel of panel items
 set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
@@ -91,71 +87,66 @@ screen 2 do
   top [:views, :title, :spacer]
 end
 set :separator,  ""
-set :outline,    0
 
-#
-# == Colors
-#
-# Colors directly define the look of subtle, valid values are:
-#
-# [*hexadecimal*] #0000ff
-# [*decimal*]     (0, 0, 255)
-# [*names*]       blue
-#
-# Whenever there is no valid value for a color set - subtle will use a default
-# one. There is only one exception to this: If no background color is given no
-# color will be set. This will ensure a custom background pixmap won't be
-# overwritten.
-#
-# === Link
-#
-# http://subforge.org/wiki/subtle/Themes
-#
+style :title do
+  padding     0, 0, 0, 0
+  border      "#303030", 0
+  foreground  "#ffffff"
+  background  "#202020"
+end
 
-# Colors of focus window title
-color :title_fg,        "#ffffff"
-color :title_bg,        "#202020"
-color :title_border,    "#303030"
+style :focus do
+  padding     0, 0, 0, 0
+  border      "#000000", 0
+  foreground  "#ffffff"
+  background  "#000000"
+end
 
-# Colors of the active views
-color :focus_fg, "#ffffff"
-color :focus_bg, "#000000"
-color :focus_border, "#000000"
+style :urgent do
+  padding     0, 0, 0, 0
+  border      "#303030", 0
+  foreground  "#ff0000"
+  background  "#ffffff"
+end
 
-# Colors of urgent window titles and views
-color :urgent_fg, "#ff0000"
-color :urgent_bg, "#ffffff"
-color :urgent_border,   "#303030"
+style :occupied do
+  padding     0, 0, 0, 0
+  border      "#ffffff", 0
+  foreground  "#5ad25a"
+  background  "#505050"
+end
 
-# Colors of occupied views (views with clients)
-color :occupied_fg, "#5ad25a"
-color :occupied_bg, "#505050"
-color :occupied_border, "#ffffff"
+style :views do
+  padding     0, 0, 0, 0
+  border      "#ffffff", 0
+  foreground  "#5ad25a"
+  background  "#000000"
+end
 
-# Color of view buttons
-color :views_fg, "#5ad25a"
-color :views_bg, "#000000"
-color :views_border, "#ffffff"
+style :sublets do
+  padding     0, 0, 0, 0
+  border      "#303030", 0
+  foreground  "#5ad25a"
+  background  "#000000"
+end
 
-# Colors of sublets
-color :sublets_fg, "#5ad25a"
-color :sublets_bg, "#000000"
-color :sublets_border, "#303030"
+style :separator do
+  padding     0, 0, 0, 0
+  border      0
+  background  "#000000"
+  foreground  "#757575"
+end
 
-# Border colors of active/inactive windows
-color :client_inactive, "#000000"
-color :client_active, "#5ad25a"
+style :clients do
+  active      "#5ad25a", 2
+  inactive    "#000000", 2
+  margin      0
+end
 
-# Background colors of panels
-color :panel,           "#000000"
-
-# Background color of root background
-
-# Color of the stipple (if enabled)
-color :stipple, "#5ad25a"
-
-# Color of the separator
-color :separator,     "#757575"
+style :subtle do
+  panel       "#000000"
+  stipple     "#5ad25a"
+end
 
 #
 # == Gravities
