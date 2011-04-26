@@ -302,7 +302,7 @@ grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
 grab "W-dollar" do
-  Launcher::Launcher.instance.run
+  Subtle::Contrib::Launcher.instance.run
 end
 # exchanges primary clipboard and selection buffer
 grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
