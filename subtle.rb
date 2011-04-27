@@ -301,6 +301,7 @@ grab "W-period", [:bottom_right, :bottom_right50, :bottom_right33]
 grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
+grab "W-S-Return", "urxvt -name dev_term"
 grab "W-dollar" do
   Subtle::Contrib::Launcher.instance.run
 end
@@ -424,11 +425,12 @@ end
 
 tag "term", "xterm|[u]?rxvt"
 tag "browser", "uzbl|opera|firefox|navigator|midori|chromium|dwb"
-tag "mail", "kmail"
 tag "chat", "psi|gajim|sshIRC"
 
+tag "dev_term", "dev_term"
+
 tag "editor" do
-  match    "[g]?vim|VIM|Meld"
+  match    "[g]?vim|VIM|Meld|emacs"
   resize   true
 end
 
@@ -499,7 +501,8 @@ end
 #
 
 view "terms", "term"
-view "net", "browser|chat|mail"
+view "net", "browser|chat"
+view "dev", "browser|editor|dev_term"
 view "other", "default"
 view "wine" do
   match "wine"
