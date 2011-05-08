@@ -89,50 +89,44 @@ end
 set :separator,  ""
 
 style :title do
-  padding     0, 0, 0, 0
   border      "#303030", 0
   foreground  "#ffffff"
   background  "#202020"
 end
 
 style :focus do
-  padding     0, 0, 0, 0
   border      "#000000", 0
   foreground  "#ffffff"
   background  "#000000"
 end
 
 style :urgent do
-  padding     0, 0, 0, 0
   border      "#303030", 0
   foreground  "#ff0000"
   background  "#ffffff"
 end
 
 style :occupied do
-  padding     0, 0, 0, 0
   border      "#ffffff", 0
   foreground  "#5ad25a"
   background  "#505050"
 end
 
 style :views do
-  padding     0, 0, 0, 0
+  margin 0, 4
   border      "#ffffff", 0
   foreground  "#5ad25a"
   background  "#000000"
 end
 
 style :sublets do
-  padding     0, 0, 0, 0
+  margin 0, 4
   border      "#303030", 0
   foreground  "#5ad25a"
   background  "#000000"
 end
 
 style :separator do
-  padding     0, 0, 0, 0
-  border      0
   background  "#000000"
   foreground  "#757575"
 end
@@ -140,7 +134,6 @@ end
 style :clients do
   active      "#5ad25a", 2
   inactive    "#000000", 2
-  margin      0
 end
 
 style :subtle do
