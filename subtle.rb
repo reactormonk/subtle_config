@@ -95,33 +95,36 @@ style :title do
 end
 
 style :focus do
-  border      "#000000", 0
+  padding     0, 2
+  border      "#000000", 0, 2
   foreground  "#ffffff"
   background  "#000000"
 end
 
 style :urgent do
-  border      "#303030", 0
+  padding     0, 2
+  border      "#303030", 0, 2
   foreground  "#ff0000"
   background  "#ffffff"
 end
 
 style :occupied do
-  border      "#ffffff", 0
+  padding     0, 2
+  border      "#ffffff", 0, 2
   foreground  "#5ad25a"
   background  "#505050"
 end
 
 style :views do
-  margin 0, 4
-  border      "#ffffff", 0
+  padding     0, 2
+  border      "#ffffff", 0, 2
   foreground  "#5ad25a"
   background  "#000000"
 end
 
 style :sublets do
-  margin 0, 4
-  border      "#303030", 0
+  margin      0, 2
+  border      "#303030", 0, 2
   foreground  "#5ad25a"
   background  "#000000"
 end
