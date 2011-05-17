@@ -123,8 +123,8 @@ style :views do
 end
 
 style :sublets do
-  margin      0, 2
-  border      "#303030", 0, 2
+  padding      0, 2
+  border      "#303030", 0, 4
   foreground  "#5ad25a"
   background  "#000000"
 end
