@@ -593,6 +593,8 @@ SCRIPT
 # JAVA hack
 set :wmname, "LG3D"
 
+Dir.chdir ENV['HOME']
+system "sh .fehbg"
+system "sh bin/xkb"
+
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
-
-
