@@ -156,6 +156,24 @@ end
 # size. The first two values are x and y starting at the center of the screen
 # and he last two values are the width and height.
 #
+# A small hack of mine because I don't like the new way of defining gravitites
+
+@new_grav = method(:gravity)
+def gravity(name, data)
+  x, y, width, height = *data
+  new_x = if x + width > 100
+            100 - width
+          else
+            [x - width/2, 0].max
+          end
+  new_y = if y + height > 100
+            100 - height
+          else
+            [y - height/2, 0].max
+          end
+  @new_grav.call(name, [new_x, new_y, width, height])
+end
+
 #
 # === Example
 #
@@ -163,36 +181,36 @@ end
 #
 #   gravity :example, [ 0, 0, 100, 100 ]
 #
-tt = 1.0/3*100
+
 gravity :top_left,      [0, 0, 50, 50]
-gravity :top_left33,    [0, 0, tt, tt]
-gravity :top_left50,    [0, 0, tt, 50]
+gravity :top_left33,    [0, 0, 33, 33]
+gravity :top_left50,    [0, 0, 33, 50]
 gravity :top,           [50, 0, 100, 50]
-gravity :top33,         [50, 0, tt, tt]
-gravity :top50,         [50, 0, tt, 50]
+gravity :top33,         [50, 0, 34, 33]
+gravity :top50,         [50, 0, 34, 50]
 gravity :top_right,     [100, 0, 50, 50]
-gravity :top_right33,   [100, 0, tt, tt]
-gravity :top_right50,   [100, 0, tt, 50]
+gravity :top_right33,   [100, 0, 33, 33]
+gravity :top_right50,   [100, 0, 33, 50]
 gravity :left,          [0, 0, 50, 100]
 gravity :left66,        [0, 50, 10, 100]
-gravity :left50,        [0, 50, 50, tt]
-gravity :left33,        [0, 50, 25, tt]
+gravity :left50,        [0, 50, 50, 33]
+gravity :left33,        [0, 50, 25, 33]
 gravity :center,        [50, 50, 100, 100]
-gravity :center66,      [0, 50, 100, tt]
+gravity :center66,      [0, 50, 100, 33]
 #gravity :center33,      [50, 50, 50, tt]
 gravity :right,         [100, 0, 50, 100]
 gravity :right66,       [100, 50, 10, 100]
-gravity :right50,       [100, 50, 50, tt]
-gravity :right33,       [100, 50, 25, tt]
+gravity :right50,       [100, 50, 50, 33]
+gravity :right33,       [100, 50, 25, 33]
 gravity :bottom_left,   [0, 100, 50, 50]
-gravity :bottom_left50, [0, 100, tt, 50]
-gravity :bottom_left33, [0, 100, tt, tt]
+gravity :bottom_left50, [0, 100, 34, 50]
+gravity :bottom_left33, [0, 100, 34, 34]
 gravity :bottom,        [0, 100, 100, 50]
-gravity :bottom66,      [50, 100, tt, 50]
-gravity :bottom33,      [50, 100, tt, tt]
+gravity :bottom66,      [50, 100, 33, 50]
+gravity :bottom33,      [50, 100, 33, 33]
 gravity :bottom_right,  [100, 100, 50, 50]
-gravity :bottom_right50, [100, 100, tt, 50]
-gravity :bottom_right33, [100, 100, tt, tt]
+gravity :bottom_right50, [100, 100, 34, 50]
+gravity :bottom_right33, [100, 100, 34, 34]
 gravity :gimp_image,    [50, 50, 80, 100]
 gravity :gimp_toolbox,  [0, 0, 10, 100]
 gravity :gimp_dock,     [100, 0, 10, 100]
