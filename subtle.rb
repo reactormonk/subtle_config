@@ -141,7 +141,7 @@ end
 # Style for active/inactive windows
 style :clients do
   active      "#5ad25a", 2
-  inactive    "#000000", 2
+  inactive    "#ffffff", 2
   margin      0
   width       50
 end
@@ -151,6 +151,10 @@ style :subtle do
   margin      0, 0, 0, 0
   panel       "#000000"
   stipple     "#5ad25a"
+end
+
+sublet :battery do
+  colors 10 => "#ff0000", 30 => "#fff000"
 end
 
 #
