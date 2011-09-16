@@ -329,9 +329,7 @@ grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
 grab "W-S-Return", "urxvt -name dev_term"
-grab "W-dollar" do
-  Subtle::Contrib::Launcher.instance.run
-end
+grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
 grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
 # pastes to sprunge
@@ -514,6 +512,13 @@ tag "wine" do
   match :class => "wine"
 end
 
+tag "gmrun" do
+  match :class => "gmrun"
+  stick true
+  fixed true
+  zaphod true
+end
+
 #
 # == Views
 #
@@ -627,5 +632,11 @@ set :wmname, "LG3D"
 Dir.chdir ENV['HOME']
 system "sh .fehbg"
 system "sh bin/xkb"
+
+on :client_create do |c|
+  if c.name == "Execute program feat. completion"
+    c.focus
+  end
+end
 
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
