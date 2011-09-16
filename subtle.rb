@@ -88,58 +88,67 @@ screen 2 do
 end
 set :separator,  ""
 
-style :title do
-  border      "#303030", 0
-  foreground  "#ffffff"
-  background  "#202020"
-end
-
-style :focus do
-  padding     0, 2
+# Style for all style elements
+style :all do
+  background  "#000000"
+  foreground  "#5ad25a"
+  icon        "#757575"
   border      "#000000", 0, 2
-  foreground  "#ffffff"
-  background  "#000000"
-end
-
-style :urgent do
   padding     0, 2
-  border      "#303030", 0, 2
-  foreground  "#ff0000"
-  background  "#ffffff"
 end
 
-style :occupied do
-  padding     0, 2
-  border      "#ffffff", 0, 2
-  foreground  "#5ad25a"
-  background  "#505050"
-end
-
+# Style for the views
 style :views do
-  padding     0, 2
-  border      "#ffffff", 0, 2
+  border      "#000000", 0, 2
   foreground  "#5ad25a"
-  background  "#000000"
+
+  # Style for the active views
+  style :focus do
+    foreground  "#ffffff"
+    background  "#000000"
+  end
+
+  # Style for urgent window titles and views
+  style :urgent do
+    foreground  "#ff0000"
+    background  "#ffffff"
+  end
+
+  # Style for occupied views (views with clients)
+  style :occupied do
+    background  "#505050"
+  end
+
+  # Style for unoccupied views (views without clients)
+  style :unoccupied do
+  end
 end
 
+# Style for sublets
 style :sublets do
-  padding      0, 2
-  border      "#303030", 0, 4
   foreground  "#5ad25a"
-  background  "#000000"
 end
-
+# Style for separator
 style :separator do
-  background  "#000000"
-  foreground  "#757575"
+  foreground  "#5ad25a"
 end
 
+# Style for focus window title
+style :title do
+  foreground  "#ffffff"
+end
+
+# Style for active/inactive windows
 style :clients do
   active      "#5ad25a", 2
   inactive    "#000000", 2
+  margin      0
+  width       50
 end
 
+# Style for subtle
 style :subtle do
+  margin      0, 0, 0, 0
   panel       "#000000"
   stipple     "#5ad25a"
 end
