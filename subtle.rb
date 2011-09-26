@@ -11,9 +11,6 @@
 # locations specified by +XDG_CONFIG_DIRS+ and +XDG_CONFIG_HOME+.
 #
 
-$LOAD_PATH << File.join(ENV['XDG_CONFIG_HOME'], 'subtle')
-require "subtle-launcher/launcher"
-
 #
 # == Options
 #
