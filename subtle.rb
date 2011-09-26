@@ -151,7 +151,8 @@ style :subtle do
 end
 
 sublet :battery do
-  colors 10 => "#ff0000", 30 => "#fff000"
+  colors 10 => "#ff0000", 30 => "#fff000", 100 => "#5ad25a"
+
 end
 
 #
