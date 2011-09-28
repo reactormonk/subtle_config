@@ -326,7 +326,6 @@ grab "W-period", [:bottom_right, :bottom_right50, :bottom_right33]
 grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
 grab "W-Return", "urxvt"
-grab "W-S-Return", "urxvt -name dev_term"
 grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
 grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
@@ -342,6 +341,17 @@ grab "XF86AudioLowerVolume", :VolumeLower
   grab "W-#{i}", "ViewSwitch#{i}".to_sym
   grab "W-A-#{i}", "ScreenJump#{i}".to_sym
 end
+
+# toggle to dev
+grab("W-e", proc do |client|
+  if client[:before_dev]
+    client.tags = client[:before_dev].split("/")
+  else
+    client[:before_dev] = client.tags.map(&:name).join("/")
+    client.tags = ["dev"]
+  end
+end)
+
 
 #
 # == Tags
@@ -450,7 +460,7 @@ tag "term", "xterm|[u]?rxvt"
 tag "browser", "uzbl|opera|firefox|navigator|midori|chromium|dwb"
 tag "chat", "psi|gajim|sshIRC"
 
-tag "dev_term", "dev_term"
+tag "dev"
 
 tag "editor" do
   match    "[g]?vim|VIM|Meld|emacs"
@@ -532,7 +542,7 @@ end
 
 view "terms", "term"
 view "net", "browser|chat"
-view "dev", "browser|editor|dev_term"
+view "dev", "editor|dev"
 view "other", "default"
 view "wine" do
   match "wine"
