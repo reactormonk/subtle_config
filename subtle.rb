@@ -346,6 +346,7 @@ end
 grab("W-e", proc do |client|
   if client[:before_dev]
     client.tags = client[:before_dev].split("/")
+    client[:before_dev] = nil
   else
     client[:before_dev] = client.tags.map(&:name).join("/")
     client.tags = ["dev"]
