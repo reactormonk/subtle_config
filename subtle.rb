@@ -344,7 +344,7 @@ end
 
 # toggle to dev
 grab("W-e", proc do |client|
-  if client[:before_dev]
+  if client.has_tag?("dev")
     client.tags = client[:before_dev].split("/")
     client[:before_dev] = nil
   else
