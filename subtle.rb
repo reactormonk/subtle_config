@@ -77,7 +77,7 @@ set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 screen 1 do
   # Add stipple to panels
   stripple false
-  top [:views, :title, :spacer, :sublets, :spacer, :tray]
+  top [:views, :title, :spacer, :sublets, :wifi, :ipaddr, :spacer, :tray]
   bottom []
 end
 screen 2 do
