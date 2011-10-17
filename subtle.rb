@@ -33,21 +33,9 @@ set :urgent, false
 # Enable respecting of size hints globally
 set :resize, false
 
-# Screen size padding (left, right, top, bottom)
-
-# Font string either take from e.g. xfontsel or use xft
-set :font, "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
-#set :font, "xft:sans-8"
-
-# Space around windows
-
 # Separator between sublets
 set :separator, "|"
 
-# Outline border size in pixel of panel items
-
-# Outline border size in pixel of panel items
-set :font,       "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
 #
 # == Screen
 #
@@ -87,6 +75,7 @@ set :separator,  ""
 
 # Style for all style elements
 style :all do
+  font        "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
   background  "#000000"
   foreground  "#5ad25a"
   icon        "#757575"
