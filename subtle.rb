@@ -10,7 +10,7 @@
 # and the user config in +HOME/.config/subtle+, both locations are dependent on the
 # locations specified by +XDG_CONFIG_DIRS+ and +XDG_CONFIG_HOME+.
 #
-
+require 'pathname'
 #
 # == Options
 #
@@ -314,7 +314,7 @@ grab "W-comma", [:bottom, :bottom66, :bottom33]
 grab "W-period", [:bottom_right, :bottom_right50, :bottom_right33]
 grab "C-XF86Forward", :ViewNext
 grab "C-XF86Back", :ViewPrev
-grab "W-Return", "urxvt"
+grab "W-Return", proc { run_urxvt }
 grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
 grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
@@ -333,6 +333,10 @@ end
 
 # toggle to dev
 grab("W-e", proc do |client|
+       toggle_dev(client)
+end)
+
+def toggle_dev(client)
   if client.has_tag?("dev")
     client.tags = client[:before_dev].split("/")
     client[:before_dev] = nil
@@ -340,7 +344,24 @@ grab("W-e", proc do |client|
     client[:before_dev] = client.tags.map(&:name).join("/")
     client.tags = ["dev"]
   end
-end)
+end
+
+def run_urxvt
+  if Subtlext::View.current.name == "dev"
+    current_file = Pathname.new(Array(Subtlext::Client.find("emacs")).first.name || "")
+    client = nil
+    if current_file.exist?
+      Dir.chdir(current_file.dirname) do
+        client = Subtlext::Subtle.spawn("urxvt")
+      end
+    else
+      client = Subtlext::Subtle.spawn("urxvt")
+    end
+    toggle_dev(client) if client
+  else
+    spawn("urxvt")
+  end
+end
 
 
 #
