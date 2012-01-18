@@ -317,9 +317,9 @@ grab "C-XF86Back", :ViewPrev
 grab "W-Return", proc { run_urxvt }
 grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
-grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard"
+grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard && notify-send switched"
 # pastes to sprunge
-grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | xclip -selection -i"
+grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | xclip -selection -i; [[ ${PIPESTATUS[1]} == 0 ]] && notify-send pasted || notify-send failed "
 
 grab "XF86AudioMute", :VolumeToggle
 grab "XF86AudioRaiseVolume", :VolumeRaise
