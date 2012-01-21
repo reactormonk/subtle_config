@@ -141,7 +141,6 @@ end
 
 sublet :battery do
   colors 10 => "#ff0000", 30 => "#fff000", 100 => "#5ad25a"
-
 end
 
 #
@@ -347,8 +346,8 @@ def toggle_dev(client)
 end
 
 def run_urxvt
-  if Subtlext::View.current.name == "dev"
-    current_file = Pathname.new(Array(Subtlext::Client.find("emacs")).first.name || "")
+  if Subtlext::View.current.to_s == "dev"
+    current_file = Pathname.new(Array(Subtlext::Client.find("emacs")).first.to_s || "")
     client = nil
     if current_file.exist?
       Dir.chdir(current_file.dirname) do
