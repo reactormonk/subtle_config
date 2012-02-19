@@ -318,7 +318,7 @@ grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
 grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard && notify-send switched"
 # pastes to sprunge
-grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | xclip -selection -i; [[ ${PIPESTATUS[1]} == 0 ]] && notify-send pasted || notify-send failed "
+grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | tr -d '\n' | xclip -selection -i; [[ ${PIPESTATUS[1]} == 0 ]] && notify-send pasted || notify-send failed "
 
 grab "XF86AudioMute", :VolumeToggle
 grab "XF86AudioRaiseVolume", :VolumeRaise
@@ -337,8 +337,13 @@ end)
 
 def toggle_dev(client)
   if client.has_tag?("dev")
-    client.tags = client[:before_dev].split("/")
-    client[:before_dev] = nil
+    tags_before = client[:before_dev]
+    if tags_before
+      client.tags = tags_before.split("/")
+      client[:before_dev] = nil
+    else
+      client.retag
+    end
   else
     client[:before_dev] = client.tags.map(&:name).join("/")
     client.tags = ["dev"]
