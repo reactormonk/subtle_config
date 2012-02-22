@@ -16,39 +16,33 @@ require 'pathname'
 #
 # Following options change behaviour and sizes of the window manager:
 #
-# Border size in pixel of the windows
-
 # Window move/resize steps in pixel per keypress
-set :step, 5
+set :increase_step, 5
 
 # Window screen border snapping
-set :snap, 10
+set :border_snap, 10
 
-# Default starting gravity for windows (0 = gravity of last client)
-set :gravity, :center
+# Default starting gravity for windows. Comment out to use gravity of
+# currently active client
+set :default_gravity, :center
 
-# Make transient windows urgent
-set :urgent, false
+# Make dialog windows urgent and draw focus
+set :urgent_dialogs, false
 
-# Enable respecting of size hints globally
-set :resize, false
+# Honor resize size hints globally
+set :honor_size_hints, false
 
-# Separator between sublets
-set :separator, "|"
+# Enable gravity tiling for all gravities
+set :gravity_tiling, false
 
-#
-# == Screen
-#
-# Generally subtle comes with two panels per screen, one on the top and one at
-# the bottom. Each panel can be configured with different panel items and sublets
-# screen wise. Per default only the top panel on the first screen is used, it's
-# up to the user to enable the bottom panel or disable either one or both.
-#
-# Empty panels are hidden.
-#
-# Following items are available:
-#
-# [*:views*]     List of views with buttons
+# Enable click-to-focus focus model
+set :click_to_focus, false
+
+# Skip pointer movement on e.g. gravity change
+set :skip_pointer_warp, false
+
+# Skip pointer movement to urgent windows
+set :skip_urgent_warp, true
 # [*:title*]     Title of the current active window
 # [*:tray*]      Systray icons (Can be used once)
 # [*:sublets*]   Catch-all for installed sublets
@@ -103,10 +97,6 @@ style :views do
   # Style for occupied views (views with clients)
   style :occupied do
     background  "#505050"
-  end
-
-  # Style for unoccupied views (views without clients)
-  style :unoccupied do
   end
 end
 
@@ -648,9 +638,6 @@ fi
 
 [ $reload -eq 0 ] && subtler -r
 SCRIPT
-
-# JAVA hack
-set :wmname, "LG3D"
 
 Dir.chdir ENV['HOME']
 system "sh .fehbg"
