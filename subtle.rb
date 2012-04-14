@@ -59,7 +59,7 @@ set :skip_urgent_warp, true
 screen 1 do
   # Add stipple to panels
   stripple false
-  top [:views, :title, :spacer, :sublets, :wifi, :ipaddr, :spacer, :tray]
+  top [:views, :title, :spacer, :sublets, :wifi, :ipaddr, :keychain, :tray]
   bottom []
 end
 screen 2 do
@@ -306,9 +306,9 @@ grab "C-XF86Back", :ViewPrev
 grab "W-Return", proc { run_urxvt }
 grab "W-dollar", "gmrun"
 # exchanges primary clipboard and selection buffer
-grab "W-t s", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard && notify-send switched"
+grab "W-t", "tmp=`xclip -o -selection primary` && xclip -selection clipboard -o | xclip -selection primary && echo \"$tmp\" | xclip -selection clipboard && notify-send switched"
 # pastes to sprunge
-grab "W-t p", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | tr -d '\n' | xclip -selection -i; [[ ${PIPESTATUS[1]} == 0 ]] && notify-send pasted || notify-send failed "
+grab "W-z", "xclip -o -selection | curl -sF 'sprunge=<-' http://sprunge.us | tr -d '\n' | xclip -selection -i; [[ ${PIPESTATUS[1]} == 0 ]] && notify-send pasted || notify-send failed "
 
 grab "XF86AudioMute", :VolumeToggle
 grab "XF86AudioRaiseVolume", :VolumeRaise
@@ -346,12 +346,11 @@ def run_urxvt
     client = nil
     if current_file.exist?
       Dir.chdir(current_file.dirname) do
-        client = Subtlext::Subtle.spawn("urxvt")
+        Subtlext::Subtle.spawn("urxvt")
       end
     else
-      client = Subtlext::Subtle.spawn("urxvt")
+      Subtlext::Subtle.spawn("urxvt")
     end
-    toggle_dev(client) if client
   else
     spawn("urxvt")
   end
@@ -461,7 +460,10 @@ end
 # http://subforge.org/wiki/subtle/Tagging
 #
 
-tag "term", "xterm|[u]?rxvt"
+tag "term" do
+  match :class => "xterm|[u]?rxvt"
+end
+
 tag "browser", "uzbl|opera|firefox|navigator|midori|chromium|dwb"
 tag "chat", "psi|gajim|sshIRC"
 
@@ -636,7 +638,7 @@ if [ $reload -eq 1 ] ; then
  reload=$?
 fi
 
-[ $reload -eq 0 ] && subtler -r
+[ $reload -eq 0 ] && subtler -r && notify-send reloaded
 SCRIPT
 
 Dir.chdir ENV['HOME']
@@ -647,6 +649,19 @@ on :client_create do |c|
   if c.name == "Execute program feat. completion"
     c.focus
   end
+  if c.klass == "URxvt" and Subtlext::View.current.name == "dev"
+    toggle_dev(c)
+  end
+end
+
+begin
+  require File.expand_path('vendor/selector.rb', File.dirname(__FILE__))
+rescue LoadError => error
+  puts error
+end
+
+grab "W-d" do
+  Subtle::Contrib::Selector.run
 end
 
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
