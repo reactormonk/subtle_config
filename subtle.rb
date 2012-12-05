@@ -343,13 +343,12 @@ end
 def run_urxvt
   if Subtlext::View.current.to_s == "dev"
     current_file = Pathname.new(Array(Subtlext::Client.find("emacs")).first.to_s || "")
-    client = nil
     if current_file.exist?
       Dir.chdir(current_file.dirname) do
-        Subtlext::Subtle.spawn("urxvt")
+        spawn("urxvt")
       end
     else
-      Subtlext::Subtle.spawn("urxvt")
+      spawn("urxvt")
     end
   else
     spawn("urxvt")
@@ -664,4 +663,5 @@ grab "W-d" do
   Subtle::Contrib::Selector.run
 end
 
+set :wmname, "LG3D"
 # vim:ts=2:bs=2:sw=2:et:fdm=markerreloadable 'misc'
